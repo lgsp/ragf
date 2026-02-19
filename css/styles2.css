@@ -1,0 +1,299 @@
+/* ══════════════════════════════════════════════
+   styles2.css — Représenter les fonctions
+   Complète styles.css (partagé) sans le dupliquer.
+   Accent principal : bleu (--accent3 #5ab8e0)
+══════════════════════════════════════════════ */
+
+/* ── Hero variante bleue ── */
+.hero2::before {
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(90,184,224,.11) 0%, transparent 70%) !important;
+}
+.hero2-title {
+  background: linear-gradient(135deg, #5ab8e0 0%, #3a90c0 50%, #a8dff5 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+.badge2 {
+  color: var(--accent3) !important;
+  border-color: rgba(90,184,224,.4) !important;
+}
+.nav-pill2 {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 10px 22px;
+  border-radius: 100px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all .25s;
+  text-decoration: none;
+  display: inline-block;
+}
+.nav-pill2:hover, .nav-pill2.active {
+  background: var(--accent3);
+  color: var(--bg);
+  border-color: var(--accent3);
+}
+
+/* ── Section number variante bleue ── */
+.section-num2 {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--accent3);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+/* ── Highlight box bleue ── */
+.highlight-box2 {
+  background: rgba(90,184,224,.07);
+  border: 1px solid rgba(90,184,224,.22);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+}
+.highlight-box2 h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: var(--accent3);
+  margin-bottom: 8px;
+}
+.highlight-box2 p {
+  font-size: 14px;
+  color: #bbb;
+  line-height: 1.8;
+}
+
+/* ── Definition cards ── */
+.def-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  transition: transform .25s, box-shadow .25s;
+}
+.def-card:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(0,0,0,.35); }
+.def-card.border-blue { border-top: 3px solid var(--accent3); }
+.def-card.border-gold { border-top: 3px solid var(--accent1); }
+.def-icon-wrap {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem;
+  font-family: serif;
+  flex-shrink: 0;
+}
+.def-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+.def-text {
+  font-size: 13px;
+  color: #bbb;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+.def-formula {
+  background: var(--bg3);
+  border-left: 3px solid var(--accent3);
+  padding: 10px 16px;
+  border-radius: 0 8px 8px 0;
+  font-family: 'DM Mono', monospace;
+  font-size: 14px;
+  margin: 8px 0;
+  color: var(--text);
+}
+.def-note {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Domain examples ── */
+.domain-ex {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  text-align: center;
+}
+.domain-expr {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+.domain-val {
+  font-family: 'DM Mono', monospace;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.domain-why { font-size: 12px; color: var(--muted); }
+
+/* ── Tool row ── */
+.tool-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.coord-field { display: flex; align-items: center; gap: 8px; }
+.coord-field label { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--muted); }
+.num-input {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-family: 'DM Mono', monospace;
+  font-size: 14px;
+  width: 80px;
+  transition: border-color .2s;
+}
+.num-input:focus { outline: none; border-color: var(--accent3); }
+
+/* ── Tabs variante bleue ── */
+.tab2 {
+  padding: 7px 16px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all .2s;
+  color: var(--muted);
+  border: none;
+  background: transparent;
+  font-family: 'DM Sans', sans-serif;
+}
+.tab2.active { background: var(--accent3); color: var(--bg); }
+.tab2:hover:not(.active) { color: var(--accent3); }
+
+/* ── Btn variante bleue ── */
+.btn2 {
+  background: var(--accent3);
+  color: var(--bg);
+  border: none;
+  padding: 9px 20px;
+  border-radius: 100px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  transition: opacity .2s;
+}
+.btn2:hover { opacity: .85; }
+
+/* ── Result box ── */
+.result-box {
+  padding: 13px 16px;
+  background: var(--bg3);
+  border-radius: 10px;
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  line-height: 1.9;
+  min-height: 44px;
+  border: 1px solid var(--border);
+}
+.ok { color: var(--accent4); }
+.ko { color: var(--accent2); }
+
+/* ── Model list ── */
+.model-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #aaa;
+  line-height: 2;
+}
+.model-list li::before { content: '• '; color: var(--accent3); }
+
+/* ── Parity cards ── */
+.parity-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+}
+.parity-even { border-top: 3px solid var(--accent1); }
+.parity-odd  { border-top: 3px solid var(--accent5); }
+.parity-top { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+.parity-badge {
+  padding: 4px 12px; border-radius: 100px;
+  font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+}
+.even-badge { background: rgba(247,201,72,.15); color: var(--accent1); }
+.odd-badge  { background: rgba(176,90,224,.15); color: var(--accent5); }
+.parity-cond {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--muted);
+  background: none;
+}
+.parity-geo {
+  display: flex; align-items: flex-start; gap: 8px;
+  font-size: 13px; color: #bbb; line-height: 1.6;
+  margin-bottom: 10px;
+}
+.parity-arrow { color: var(--accent3); flex-shrink: 0; }
+.ex-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.ex-tag {
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 6px; padding: 3px 10px;
+  font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted);
+}
+
+/* ── Parity verdict ── */
+.verdict-box {
+  padding: 13px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.8;
+  border: 1px solid var(--border);
+  background: var(--bg3);
+}
+.verdict-even { border-color: rgba(247,201,72,.4); background: rgba(247,201,72,.06); color: #cca840; }
+.verdict-odd  { border-color: rgba(176,90,224,.4); background: rgba(176,90,224,.06); color: #b07ada; }
+.verdict-none { border-color: rgba(107,107,130,.3); background: rgba(107,107,130,.05); color: var(--muted); }
+
+/* ── f vs g ── */
+.fg-selectors { display: flex; flex-direction: column; gap: 10px; }
+.fg-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.fg-label { font-family: 'DM Mono', monospace; font-size: 14px; width: 68px; flex-shrink: 0; }
+.fg-legend { display: flex; gap: 20px; flex-wrap: wrap; }
+.legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+.legend-line { width: 24px; height: 3px; border-radius: 2px; }
+
+/* ── Sign table ── */
+.sign-controls { display: flex; flex-direction: column; gap: 10px; }
+.sign-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.sign-lbl { font-family: 'DM Mono', monospace; font-size: 14px; width: 52px; flex-shrink: 0; }
+.coeff-in {
+  background: var(--bg3); border: 1px solid var(--border); color: var(--text);
+  padding: 7px 10px; border-radius: 8px; font-family: 'DM Mono', monospace;
+  font-size: 14px; width: 68px; transition: border-color .2s;
+}
+.coeff-in:focus { outline: none; border-color: var(--accent3); }
+.sign-op { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--muted); }
+.radio-lbl { font-size: 13px; color: var(--text); display: flex; align-items: center; gap: 6px; cursor: pointer; }
+.radio-lbl input { accent-color: var(--accent3); }
+
+.sign-tbl { width: 100%; border-collapse: collapse; font-family: 'DM Mono', monospace; font-size: 14px; min-width: 480px; }
+.sign-tbl th, .sign-tbl td { padding: 11px 14px; border: 1px solid var(--border); text-align: center; }
+.sign-tbl th { background: var(--bg3); color: var(--muted); font-size: 12px; font-family: 'DM Mono', monospace; }
+.sign-tbl td:first-child { background: var(--bg3); text-align: left; font-size: 13px; }
+.result-row td { background: rgba(90,184,224,.06); font-weight: 600; }
+.quot-row td  { background: rgba(176,90,224,.06); font-weight: 600; }
+.pos  { color: var(--accent4); font-weight: 700; }
+.neg  { color: var(--accent2); font-weight: 700; }
+.zero { color: var(--accent1); font-weight: 700; }
+.undef-cell { color: var(--muted); font-style: italic; }
+.sign-conclu { font-size: 13px; color: #aaa; line-height: 1.8; margin-top: 12px; }
+
+/* ── QCM overrides — accent3 instead of accent1 ── */
+.progress-fill { background: var(--accent3) !important; }
+.refresh-hint::before { color: var(--accent3) !important; }
+.explanation { border-left-color: var(--accent3) !important; background: rgba(90,184,224,.07) !important; color: #7cc8e0 !important; }

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Représenter les fonctions — Seconde</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+<link rel="stylesheet" href="./css/styles.css">
+<link rel="stylesheet" href="./css/styles2.css">
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<div class="hero hero2">
+  <div class="badge badge2">Seconde — Chapitre F · Fonctions</div>
+  <h1 class="hero2-title">Représenter les fonctions</h1>
+  <p>Courbe représentative, appartenance, parité, équations \(f(x)=g(x)\) et tableaux de signes.</p>
+  <div class="hero-nav">
+    <a class="nav-pill2 active" href="#definitions">Définitions</a>
+    <a class="nav-pill2" href="#appartenance">Appartenance</a>
+    <a class="nav-pill2" href="#parite">Parité</a>
+    <a class="nav-pill2" href="#fg">f vs g</a>
+    <a class="nav-pill2" href="#signes">Signes</a>
+    <a class="nav-pill2" href="#qcm">QCM</a>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ══════════════════════════════════════════════
+     01 — DÉFINITIONS
+══════════════════════════════════════════════ -->
+<section id="definitions">
+  <div class="section-header">
+    <span class="section-num2">01 — Contenus</span>
+    <h2 class="section-title">Fonctions, domaines et courbes représentatives</h2>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:20px">
+
+    <div class="def-card border-blue">
+      <div class="def-icon-wrap" style="background:rgba(90,184,224,.12);color:var(--accent3)">𝑓</div>
+      <div>
+        <h3 class="def-title">Fonction à valeurs réelles</h3>
+        <p class="def-text">Une <strong>fonction</strong> \(f\) définie sur un intervalle \(I \subseteq \mathbb{R}\) associe à chaque \(x \in I\) un unique réel \(f(x)\).</p>
+        <div class="def-formula">\(f : I \to \mathbb{R},\quad x \mapsto f(x)\)</div>
+        <p class="def-note">Le domaine \(I\) peut être \([a;b]\), \(]a;b[\), \(]-\infty;b]\)… ou une <em>réunion finie</em> d'intervalles comme \(]-\infty;0[\cup]0;+\infty[\).</p>
+      </div>
+    </div>
+
+    <div class="def-card border-gold">
+      <div class="def-icon-wrap" style="background:rgba(247,201,72,.12);color:var(--accent1)">𝒞</div>
+      <div>
+        <h3 class="def-title">Courbe représentative</h3>
+        <p class="def-text">La <strong>courbe d'équation \(y = f(x)\)</strong> est l'ensemble des points \(M(x\,;\,y)\) du plan dont les coordonnées vérifient \(y = f(x)\).</p>
+        <div class="def-formula">\(\mathcal{C}_f = \bigl\{\,(x,\,f(x))\;\big|\;x \in I\,\bigr\}\)</div>
+        <p class="def-note"><strong>Critère d'appartenance :</strong> \(A(a\,;\,b) \in \mathcal{C}_f \;\Longleftrightarrow\; b = f(a)\).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exemples de domaines -->
+  <div class="card">
+    <h3 style="font-family:'Playfair Display',serif;margin-bottom:16px;">Exemples — trouver le domaine de définition</h3>
+    <div class="grid-3">
+      <div class="domain-ex">
+        <div class="domain-expr" style="color:var(--accent1)">\(f(x)=x^2-3x+1\)</div>
+        <div class="domain-val">\(D_f = \mathbb{R}\)</div>
+        <div class="domain-why">Polynôme → défini partout</div>
+      </div>
+      <div class="domain-ex">
+        <div class="domain-expr" style="color:var(--accent2)">\(f(x)=\dfrac{1}{x-2}\)</div>
+        <div class="domain-val">\(D_f = \mathbb{R} \setminus \{2\}\)</div>
+        <div class="domain-why">Dénominateur nul en \(x=2\) → exclure</div>
+      </div>
+      <div class="domain-ex">
+        <div class="domain-expr" style="color:var(--accent3)">\(f(x)=\sqrt{x+1}\)</div>
+        <div class="domain-val">\(D_f = [-1\,;+\infty[\)</div>
+        <div class="domain-why">Radicande \(\geq 0\) : \(x+1\geq 0\)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════════
+     02 — APPARTENANCE
+══════════════════════════════════════════════ -->
+<section id="appartenance">
+  <div class="section-header">
+    <span class="section-num2">02 — Capacité attendue</span>
+    <h2 class="section-title">Exploiter \(y = f(x)\) : appartenance et coordonnées</h2>
+  </div>
+
+  <div class="highlight-box2">
+    <h4>Méthode</h4>
+    <p>
+      • <strong>Appartenance :</strong> \(A(a\,;\,b) \in \mathcal{C}_f \Leftrightarrow b = f(a)\). Calculer \(f(a)\) et comparer à \(b\).<br>
+      • <strong>Image :</strong> donné \(x=a\), l'ordonnée du point de \(\mathcal{C}_f\) d'abscisse \(a\) est \(f(a)\).<br>
+      • <strong>Antécédent :</strong> donné \(y=k\), les solutions de \(f(x)=k\) sont les abscisses des points de \(\mathcal{C}_f\) à hauteur \(k\).
+    </p>
+  </div>
+
+  <div class="card">
+    <h3 style="font-family:'Playfair Display',serif;margin-bottom:6px;">Outil interactif — tester un point</h3>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:18px;">Choisis \(f\), saisis \(a\) et \(b\), puis vérifie si \(A(a\,;\,b) \in \mathcal{C}_f\).</p>
+
+    <div class="tool-row">
+      <div class="tabs" id="app-tabs">
+        <button class="tab2 active" data-fn="sq">x² − 2</button>
+        <button class="tab2" data-fn="aff">2x + 1</button>
+        <button class="tab2" data-fn="cub">x³ − x</button>
+        <button class="tab2" data-fn="sqrt">√(x+1)</button>
+        <button class="tab2" data-fn="inv">1/x</button>
+      </div>
+    </div>
+
+    <div class="tool-row" style="margin-top:14px;gap:16px;flex-wrap:wrap;">
+      <div class="coord-field">
+        <label>a =</label>
+        <input type="number" id="input-a" value="2" step="0.5" class="num-input">
+      </div>
+      <div class="coord-field">
+        <label>b =</label>
+        <input type="number" id="input-b" value="2" step="0.5" class="num-input">
+      </div>
+      <button class="btn2" onclick="checkBelonging()">Vérifier</button>
+    </div>
+
+    <div id="app-canvas-wrap" style="height:300px;margin-top:16px;"><canvas id="app-canvas"></canvas></div>
+    <div id="app-result" class="result-box" style="margin-top:10px;"></div>
+  </div>
+
+  <!-- Modélisation physique -->
+  <div class="card" style="margin-top:20px;">
+    <h3 style="font-family:'Playfair Display',serif;margin-bottom:14px;">Modélisation — chute parabolique</h3>
+    <div class="grid-2">
+      <div>
+        <p style="font-size:14px;line-height:1.8;color:#bbb;">Un objet est lancé verticalement depuis le sol. Sa hauteur en mètres au bout de \(t\) secondes est :</p>
+        <div class="def-formula" style="margin:12px 0;">\(h(t) = -5t^2 + 20t\,,\quad t \in [0\,;\,4]\)</div>
+        <ul class="model-list">
+          <li>\(h(0) = 0\) : départ du sol</li>
+          <li>\(h(2) = 20\) m : hauteur maximale (\(\bullet\) jaune)</li>
+          <li>\(h(4) = 0\) : retour au sol</li>
+          <li>Le point \((3\,;\,15) \in \mathcal{C}_h\) car \(h(3)=15\) (\(\bullet\) vert)</li>
+        </ul>
+      </div>
+      <div style="height:240px;"><canvas id="model-canvas"></canvas></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════════
+     03 — PARITÉ
+══════════════════════════════════════════════ -->
+<section id="parite">
+  <div class="section-header">
+    <span class="section-num2">03 — Approfondissement</span>
+    <h2 class="section-title">Fonctions paires et impaires</h2>
+  </div>
+
+  <div class="grid-2" style="margin-bottom:20px;">
+    <div class="parity-card parity-even">
+      <div class="parity-top">
+        <span class="parity-badge even-badge">Paire</span>
+        <code class="parity-cond">\(\forall x \in D_f,\; f(-x) = f(x)\)</code>
+      </div>
+      <div class="parity-geo">
+        <span class="parity-arrow">⟺</span>
+        <span>Courbe symétrique par rapport à <strong>l'axe \(Oy\)</strong></span>
+      </div>
+      <div class="ex-tags">
+        <span class="ex-tag">\(x^2\)</span><span class="ex-tag">\(x^4\)</span><span class="ex-tag">\(\cos x\)</span><span class="ex-tag">\(|x|\)</span>
+      </div>
+      <div style="height:160px;margin-top:10px;"><canvas id="even-canvas"></canvas></div>
+    </div>
+
+    <div class="parity-card parity-odd">
+      <div class="parity-top">
+        <span class="parity-badge odd-badge">Impaire</span>
+        <code class="parity-cond">\(\forall x \in D_f,\; f(-x) = -f(x)\)</code>
+      </div>
+      <div class="parity-geo">
+        <span class="parity-arrow">⟺</span>
+        <span>Courbe symétrique par rapport à <strong>l'origine \(O\)</strong></span>
+      </div>
+      <div class="ex-tags">
+        <span class="ex-tag">\(x\)</span><span class="ex-tag">\(x^3\)</span><span class="ex-tag">\(\sin x\)</span><span class="ex-tag">\(\tfrac{1}{x}\)</span>
+      </div>
+      <div style="height:160px;margin-top:10px;"><canvas id="odd-canvas"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Outil parité -->
+  <div class="card">
+    <h3 style="font-family:'Playfair Display',serif;margin-bottom:6px;">Outil interactif — visualiser la symétrie</h3>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:14px;">La courbe <span style="color:var(--accent3)">bleue</span> est \(\mathcal{C}_f\). La courbe <span style="color:var(--accent2)">rouge pointillée</span> est son image par la symétrie testée. Si elles coïncident, la fonction a la parité correspondante.</p>
+    <div class="tabs" id="parity-tabs">
+      <button class="tab2 active" data-par="x2">x²</button>
+      <button class="tab2" data-par="x3">x³</button>
+      <button class="tab2" data-par="inv">1/x</button>
+      <button class="tab2" data-par="aff">2x+1</button>
+      <button class="tab2" data-par="x2px">x²+x</button>
+    </div>
+    <div style="height:280px;"><canvas id="parity-canvas"></canvas></div>
+    <div id="parity-verdict" class="verdict-box" style="margin-top:10px;"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════════
+     04 — f vs g
+══════════════════════════════════════════════ -->
+<section id="fg">
+  <div class="section-header">
+    <span class="section-num2">04 — Capacité attendue</span>
+    <h2 class="section-title">Résoudre \(f(x)=g(x)\) et \(f(x) &lt; g(x)\)</h2>
+  </div>
+
+  <div class="highlight-box2">
+    <h4>Méthode graphique</h4>
+    <p>
+      • <strong>\(f(x) = g(x)\)</strong> : abscisses des <em>points d'intersection</em> de \(\mathcal{C}_f\) et \(\mathcal{C}_g\).<br>
+      • <strong>\(f(x) &lt; g(x)\)</strong> : valeurs de \(x\) où \(\mathcal{C}_f\) est <em>strictement en dessous</em> de \(\mathcal{C}_g\).<br>
+      • <strong>\(f(x) &gt; g(x)\)</strong> : valeurs de \(x\) où \(\mathcal{C}_f\) est <em>strictement au-dessus</em> de \(\mathcal{C}_g\).
+    </p>
+  </div>
+
+  <div class="card">
+    <h3 style="font-family:'Playfair Display',serif;margin-bottom:6px;">Outil interactif — deux courbes</h3>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:16px;">Choisis \(f\) et \(g\). Les <span style="color:#b05ae0">points violets</span> sont les intersections. La <span style="color:rgba(107,224,90,.6)">zone verte</span> indique \(f(x) &lt; g(x)\).</p>
+
+    <div class="fg-selectors">
+      <div class="fg-row">
+        <span class="fg-label" style="color:var(--accent1)">\(f(x)=\)</span>
+        <div class="tabs" id="fg-f-tabs">
+          <button class="tab2 active" data-f="sq">x²</button>
+          <button class="tab2" data-f="cub">x³</button>
+          <button class="tab2" data-f="aff2">2x−1</button>
+          <button class="tab2" data-f="sqrt">√x</button>
+          <button class="tab2" data-f="inv">1/x</button>
+        </div>
+      </div>
+      <div class="fg-row" style="margin-top:8px;">
+        <span class="fg-label" style="color:var(--accent3)">\(g(x)=\)</span>
+        <div class="tabs" id="fg-g-tabs">
+          <button class="tab2 active" data-g="aff">x+1</button>
+          <button class="tab2" data-g="sq">x²</button>
+          <button class="tab2" data-g="cst">2</button>
+          <button class="tab2" data-g="aff3">3x−2</button>
+          <button class="tab2" data-g="cub">x³</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:340px;margin-top:16px;"><canvas id="fg-canvas"></canvas></div>
+
+    <div class="fg-legend" style="margin-top:12px;">
+      <div class="legend-item"><div class="legend-line" style="background:var(--accent1)"></div><span id="fg-f-label">\(f(x)=x^2\)</span></div>
+      <div class="legend-item"><div class="legend-line" style="background:var(--accent3)"></div><span id="fg-g-label">\(g(x)=x+1\)</span></div>
+      <div class="legend-item"><div style="width:22px;height:10px;background:rgba(107,224,90,.25);border-radius:2px;"></div><span style="font-size:13px;color:var(--muted)">zone \(f &lt; g\)</span></div>
+    </div>
+    <div id="fg-result" class="result-box" style="margin-top:10px;"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════════
+     05 — TABLEAUX DE SIGNES
+══════════════════════════════════════════════ -->
+<section id="signes">
+  <div class="section-header">
+    <span class="section-num2">05 — Capacité attendue</span>
+    <h2 class="section-title">Tableaux de signes : produit et quotient</h2>
+  </div>
+
+  <div class="highlight-box2">
+    <h4>Règle des signes</h4>
+    <p>
+      \((+)\times(+)=(+)\), \((+)\times(-)=(-)\), \((-)\times(-)=(+)\).<br>
+      Pour un <strong>quotient</strong> \(\dfrac{u}{v}\) : même règle, mais poser \(v \neq 0\) (la valeur annulant \(v\) donne une barre \(\|\) dans le tableau).
+    </p>
+  </div>
+
+  <!-- Exemple travaillé fixe -->
+  <div class="card" style="margin-bottom:20px;">
+    <h3 style="font-family:'Playfair Display',serif;margin-bottom:14px;">Exemple — \((2x-4)(x+3) \geq 0\)</h3>
+    <div style="overflow-x:auto;">
+      <table class="sign-tbl">
+        <thead>
+          <tr><th>\(x\)</th><th>\(-\infty\)</th><th></th><th>\(-3\)</th><th></th><th>\(2\)</th><th></th><th>\(+\infty\)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>\(2x-4\)</td><td></td><td class="neg">−</td><td class="neg">−</td><td class="neg">−</td><td class="zero">0</td><td class="pos">+</td><td></td></tr>
+          <tr><td>\(x+3\)</td><td></td><td class="neg">−</td><td class="zero">0</td><td class="pos">+</td><td class="pos">+</td><td class="pos">+</td><td></td></tr>
+          <tr class="result-row"><td>\((2x-4)(x+3)\)</td><td></td><td class="pos">+</td><td class="zero">0</td><td class="neg">−</td><td class="zero">0</td><td class="pos">+</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sign-conclu">
+      Racines : \(2x-4=0\Rightarrow x=2\) et \(x+3=0\Rightarrow x=-3\).<br>
+      Solution de \((2x-4)(x+3)\geq 0\) : \(x\in\mathopen]-\infty\,;\,-3]\cup[2\,;+\infty[\).
+    </p>
+  </div>
+
+  <!-- Générateur interactif -->
+  <div class="card">
+    <h3 style="font-family:'Playfair Display',serif;margin-bottom:6px;">Générateur interactif</h3>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:18px;">Saisis \(u=ax+b\) et \(v=cx+d\), choisis produit ou quotient.</p>
+    <div class="sign-controls">
+      <div class="sign-row">
+        <span class="sign-lbl" style="color:var(--accent1)">\(u =\)</span>
+        <input type="number" id="ua" value="1" class="coeff-in">
+        <span class="sign-op">\(x\) +</span>
+        <input type="number" id="ub" value="-2" class="coeff-in">
+      </div>
+      <div class="sign-row">
+        <span class="sign-lbl" style="color:var(--accent3)">\(v =\)</span>
+        <input type="number" id="va" value="1" class="coeff-in">
+        <span class="sign-op">\(x\) +</span>
+        <input type="number" id="vb" value="1" class="coeff-in">
+      </div>
+      <div class="sign-row" style="gap:14px;">
+        <label class="radio-lbl"><input type="radio" name="stype" value="prod" checked> produit \(u \cdot v\)</label>
+        <label class="radio-lbl"><input type="radio" name="stype" value="quot"> quotient \(u / v\)</label>
+        <button class="btn2" onclick="buildSignTable()">Générer ↵</button>
+      </div>
+    </div>
+    <div id="sign-out" style="margin-top:20px;overflow-x:auto;"></div>
+    <div id="sign-conclu-out" style="margin-top:10px;font-size:13px;line-height:1.9;color:#bbb;"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════════
+     06 — QCM
+══════════════════════════════════════════════ -->
+<section id="qcm">
+  <div class="section-header">
+    <span class="section-num2">06 — S'entraîner</span>
+    <h2 class="section-title">QCM interactif</h2>
+  </div>
+
+  <div class="qcm-section">
+    <div class="qcm-header">
+      <div>
+        <h3 style="font-family:'Playfair Display',serif;margin-bottom:4px;">Questions aléatoires</h3>
+        <p style="font-size:13px;color:var(--muted);">Sélectionne la bonne réponse · Valeurs régénérées à chaque nouveau QCM</p>
+      </div>
+      <div class="qcm-score">
+        <div>
+          <div class="score-badge" id="score-display">0 / 0</div>
+          <div class="progress-bar" style="margin-top:6px;width:120px">
+            <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+          </div>
+        </div>
+        <button class="btn" onclick="regenerateQCM()">Nouveau QCM ↻</button>
+      </div>
+    </div>
+    <div class="questions-grid" id="questions-container"></div>
+    <div class="refresh-hint">Les valeurs numériques sont générées aléatoirement — clique sur "Nouveau QCM" pour de nouveaux exercices.</div>
+  </div>
+</section>
+
+</div><!-- /container -->
+<script src="./js/main.js"></script>
+</body>
+</html>
